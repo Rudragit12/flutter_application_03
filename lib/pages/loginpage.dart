@@ -10,6 +10,8 @@ class Login_page extends StatefulWidget {
 
 class _Login_pageState extends State<Login_page> {
   String name = " ";
+  bool changeButton = false;
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -47,12 +49,48 @@ class _Login_pageState extends State<Login_page> {
                 SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
+                InkWell(
+                  onTap: () async {
+                    setState(() {
+                      changeButton = true;
+                    });
+                    await Future.delayed(
+                      Duration(seconds: 1),
+                    );
+                    Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    height: 50,
+                    width: changeButton ? 50 : 150,
+                    // color: Colors.lightGreen,
+                    alignment: Alignment.center,
+                    child: changeButton
+                        ? Icon(
+                            Icons.done,
+                            color: Colors.black,
+                          )
+                        : Text(
+                            "login",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                          ),
+                    decoration: BoxDecoration(
+                        color: Colors.lightGreen,
+                        borderRadius:
+                            BorderRadius.circular(changeButton ? 50 : 8)),
+                  ),
+                ),
+
+                /*  ElevatedButton(
                   child: Text("login"),
                   onPressed: () {
                     Navigator.pushNamed(context, MyRoutes.homeRoute);
                   },
                 )
+ */
               ]),
             ),
           ],
