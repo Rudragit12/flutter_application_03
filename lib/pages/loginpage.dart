@@ -76,6 +76,8 @@ class _Login_pageState extends State<Login_page> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return ("please enter password");
+                      } else if (value.length < 6) {
+                        return ("password length must be greater than 6");
                       }
                       return null;
                     },
