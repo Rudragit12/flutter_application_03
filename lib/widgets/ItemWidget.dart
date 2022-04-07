@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../models/Catalog.dart';
+import 'package:flutter_application_03/models/Catalog.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
 
   const ItemWidget({Key? key, required this.item})
-      : assert(item != null),
+      : /* assert(item != null), */
         super(key: key);
 
   @override
@@ -18,10 +18,7 @@ class ItemWidget extends StatelessWidget {
         trailing: Text(
           "\$${item.price}",
           textScaleFactor: 1.2,
-          style: TextStyle(
-            color: Colors.green,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
         ),
       ),
     );

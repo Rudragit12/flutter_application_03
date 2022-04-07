@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_03/Widgets/MyTheme.dart';
+import 'package:flutter_application_03/pages/CartPage.dart';
 import 'package:flutter_application_03/pages/homepage.dart';
 import 'package:flutter_application_03/pages/loginpage.dart';
 import 'package:flutter_application_03/utils/MyRoutes.dart';
-import 'package:flutter_application_03/widgets/MyTheme.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //home: HomePage(),
-      // themeMode: ThemeMode.dark,
-      theme: MyTheme.lightTheme(context),
-      darkTheme: MyTheme.darkTheme(context),
+      themeMode: ThemeMode.system,
+      theme: MyThemes.lightTheme(context),
+      darkTheme: MyThemes.darkTheme(context),
 
       debugShowCheckedModeBanner: false,
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => Login_page(),
+        MyRoutes.cartPageRoute: (context) => CartPage(),
       },
     );
   }
